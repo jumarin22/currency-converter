@@ -14,6 +14,10 @@ export function App() {
   }, [])
 
   function convert() {
+    if (isNaN(userInput.valueAsNumber) || userInput.valueAsNumber < 0) {
+      alert('Must input positive numbers')
+      return
+    }
     setAmount(userInput.valueAsNumber)
   }
 
