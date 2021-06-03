@@ -7,8 +7,8 @@ export function App() {
   const [amount, setAmount] = useState(1)
   const userInput = document.getElementById('input')
 
-  // The base currency EUR and due to our free subscription we cannot change that.
-  // So, I tried to reuse the USD rate that comes from the API.
+  // The base currency is EUR and due to our free subscription we cannot change that.
+  // So, I tried to reuse the USD rate that comes from the API and set that as the base (amount).
   // I can get an array that has the USD rate through the following block
   const usd = Object.entries(conversionResults).filter(([currencyCode]) => {
     return currencyCode === 'USD'
@@ -25,7 +25,7 @@ export function App() {
     setConversionResults(response.data.rates)
   }, [])
 
-  function convert() {
+  function checkInput() {
     if (isNaN(userInput.valueAsNumber) || userInput.valueAsNumber < 0) {
       alert('Must input positive numbers')
       return
@@ -39,7 +39,7 @@ export function App() {
         <h1>Currency Conversion Calculator</h1>
         <p>Kindly contribute cash count (EUR) to convert</p>
         <input id="input" type="number"></input>
-        <button onClick={convert}>Convert</button>
+        <button onClick={checkInput}>Convert</button>
       </header>
       <Results cRes={conversionResults} amnt={amount} />
     </>
