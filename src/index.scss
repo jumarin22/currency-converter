@@ -7,6 +7,31 @@ html {
 }
 
 body {
-  margin: 0;
+  text-align: center;
+  margin: auto;
   min-height: 100%;
+}
+header {
+  margin-bottom: 1rem;
+}
+.results {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  margin: 0.3rem;
+  border: thin solid black;
+  width: 10%;
+}
+
+article p {
+  line-height: 1.3rem;
 }
